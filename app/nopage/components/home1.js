@@ -54,13 +54,13 @@ const PhotoSlider = () => {
         className="absolute left-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-gray-500 text-white rounded-full"
         onClick={goToPrevPhoto}
       >
-        Previous
+        ❮ 
       </button>
       <button
         className="absolute right-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-gray-500 text-white rounded-full"
         onClick={goToNextPhoto}
       >
-        Next
+      ❯
       </button>
     </div>
   );
