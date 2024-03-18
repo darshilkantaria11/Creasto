@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-const PhotoGallery = () => {
+const PhotoGallery2 = () => {
   const initialPhotos = [
     'https://via.placeholder.com/500x300?text=Photo+1',
     'https://via.placeholder.com/500x300?text=Photo+2',
@@ -22,7 +22,7 @@ const PhotoGallery = () => {
 
   return (
     <div className=" mx-4">
-      <h1 className="text-2xl font-bold m-4">Jutti products</h1>
+      <h1 className="text-2xl font-bold m-4">Customized shoes</h1>
       <div className="grid grid-cols-4 gap-4">
         {photos.map((photo, index) => (
           <img
@@ -42,4 +42,4 @@ const PhotoGallery = () => {
   );
 };
 
-export default PhotoGallery;
+export default PhotoGallery2;
