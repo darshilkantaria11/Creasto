@@ -6,6 +6,7 @@ const ProductDetailPage = () => {
     const [selectedColor, setSelectedColor] = useState('');
     const [selectedDesign, setSelectedDesign] = useState('');
     const [rate, setRate] = useState(0);
+    const [quantity, setQuantity] = useState(1);
 
     const images = [
         { id: 1, src: 'https://via.placeholder.com/150', alt: 'Image 1' },
@@ -25,10 +26,25 @@ const ProductDetailPage = () => {
         setSelectedDesign(design);
     };
 
+    const addToCart = () => {
+        // Add logic to add selected product to cart
+        console.log(`Added ${quantity} item(s) to cart.`);
+    };
+
+    const increaseQuantity = () => {
+        setQuantity(quantity + 1);
+    };
+
+    const decreaseQuantity = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    };
+
     return (
         <div className="flex justify-center ">
             <div className="flex flex-row items-center justify-between w-full md:w-3/4 lg:w-1/2 mt-8">
-                <div className="flex flex-wrap justify-center flex-col">
+            <div className="flex  justify-center flex-col">
                     <div>
                         <img src={images[selectedImage]} alt="Selected Product" className="w-64 h-64 object-cover" />
                     </div>
@@ -38,15 +54,15 @@ const ProductDetailPage = () => {
                             key={index}
                             src={image}
                             alt={`Product ${index + 1}`}
-                            className={`w-24 h-24 object-cover cursor-pointer ${selectedImage === index ? 'border-2 border-blue-500' : ''
+                            className={`w-14 h-14 object-cover cursor-pointer ${selectedImage === index ? 'border-2 border-blue-500' : ''
                                 }`}
                             onClick={() => setSelectedImage(index)}
                         />
                     ))}
                     </div>
                 </div>
-                <div className="flex justify-between w-full mt-4">
 
+                <div className="flex justify-between w-full mt-4">
                     <div className="ml-8">
                         <h2 className="text-xl font-bold">Product Name</h2>
                         <p className="text-gray-600">Product Description</p>
@@ -87,6 +103,20 @@ const ProductDetailPage = () => {
                                 className="w-20 h-10 border border-gray-300 rounded-md px-2 focus:outline-none focus:border-blue-500"
                             />
                         </div>
+                        <div className="mt-4">
+                            <h3 className="text-lg font-medium">Quantity:</h3>
+                            <div className="flex items-center">
+                                <button onClick={decreaseQuantity} className="bg-gray-200 text-gray-600 py-1 px-2 rounded-l-md">-</button>
+                                <input
+                                    type="text"
+                                    value={quantity}
+                                    readOnly
+                                    className="w-10 h-10 border border-gray-300 rounded-md px-2 text-center"
+                                />
+                                <button onClick={increaseQuantity} className="bg-gray-200 text-gray-600 py-1 px-2 rounded-r-md">+</button>
+                            </div>
+                        </div>
+                        <button onClick={addToCart} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -95,4 +125,3 @@ const ProductDetailPage = () => {
 };
 
 export default ProductDetailPage;
-
